@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if request.user.is_it_manager %}
+    {% include 'app/components/home/it_manager_home.html' %}
+    {% endif %}
+
+    {% if request.user.is_it_engineer %}
+    {% include 'app/components/home/it_engineer_home.html' %}
+    {% endif %}
+
+    {% if not request.user.is_it_engineer and not request.user.is_it_manager %}
+    {% include 'app/components/home/user_home.html' %}
+    {% endif %}
+{% endblock %}

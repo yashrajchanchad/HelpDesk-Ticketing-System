@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<head>
+  <style>
+    .form-control {
+      border: 1px solid #ced4da;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background-color: #6C63AC;
+    }
+    a{
+      color:#6C63AC ;
+    }
+  </style>
+</head>
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      {% load crispy_forms_tags %}
+      <form action="{% url 'it_manager:update_ticket_manager' ticket.id %}" method='post' class="p-3">
+        {% csrf_token %}
+        {{form_errors}}
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Update Ticket</h4>
+              <form class="form-sample">
+                <p class="card-description"> Give detail information of your ticket below </p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.title|as_crispy_field }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <!-- <label class="col-sm-3 col-form-label">Title</label> -->
+                      {{ form.department|as_crispy_field }}
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.ticketType|as_crispy_field }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.ticketSubType|as_crispy_field }}
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.priority|as_crispy_field }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.status|as_crispy_field }}
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      {{ form.attachment|as_crispy_field }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+
+                      {{ form.contact_number|as_crispy_field }}
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group ">
+
+                      {{ form.description|as_crispy_field }}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+
+                    <div class="form-group ">
+
+                      {{ form.assign_to|as_crispy_field }}
+                    </div>
+                  </div>
+                </div>
+               
+                <button class="btn btn-outline-primary me-2 my-2">Reset</button>
+                <button type="submit" class="btn btn-gradient-primary me-2 my-2">Submit</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    </form>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container-fluid d-flex justify-content-between">
+      <span class="text-muted d-block text-center text-sm-start d-sm-inline-block"><b>HelpDesk Ticketing System is Developed by Komal Sardar, Yashraj Chanchad & Suraj Kanade.<b></span>
+
+
+    </div>
+  </footer>
+</div>
+
+{% endblock %}

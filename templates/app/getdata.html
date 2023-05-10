@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="main-panel">
+  <div class="content-wrapper bg-white">
+    <div class="boxes"> 
+      <!-- <div class="filter" id="filter"> -->
+        <!-- <button class="btn btn-primary my-3">All Tickets</button>
+        <button class="btn btn-primary my-3">Open Tickets 0</button>
+        <button class="btn btn-primary my-3">Close Tickets 0</button>
+        <button class="btn btn-primary my-3">Resolved Tickets 0</button> -->
+        <!-- <div class="one boxx">All Tickets</div>
+        <div class="two boxx">Open Tickets 0</div>
+        <div class="three boxx">Close Tickets 0</div>
+        <div class="four boxx">Resolved Tickets 0</div> -->
+      <!-- </div> -->
+    </div>
+    <div class="table-responsive ">
+      <table id="test" class=" table-striped" style="width:100%">
+        <thead>
+            <tr style="background-color: #9d96ce; color: white;">
+                <th>Ticket Id</th>
+                <th>Title</th>
+                <th>Ticket Type</th>
+                <th>Priority</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for ticket in tickets %}
+
+            <tr>
+                <td><a href="{% url 'helpdeskapp:grid' ticket.id %}" style="text-decoration: none; color: #6C63AC ;">{{ticket.id}}</a></td>
+                <td>{{ticket.title}}</td>
+                <td>{{ticket.ticketType}}</td>
+                <td>{{ticket.priority}}</td>
+                <td>{{ticket.department}}</td>
+                <td>
+                  <div class="icons_list">
+                    <!-- view -->
+                    <li style="list-style:none;text-decoration: none;">
+                      <a href="{% url 'helpdeskapp:grid' ticket.id %}">
+                        <i class="fa-solid fa-eye" data-toggle="tooltip" data-placement="bottom" title="View"></i>
+                      </a>
+                    </li> 
+                    <!-- edit -->
+                    <li style="list-style:none;text-decoration: none;">
+                      <a href="{% url 'helpdeskapp:update_ticket_User' pk=ticket.id %}">
+                        <i class="fa-solid fa-pen-to-square" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
+                      </a>
+                    </li>
+                    <!-- hestory -->
+                    <li style="list-style:none;text-decoration: none;">
+                      <a href="{% url 'helpdeskapp:ticket_history' ticket.id  %}">
+                        <i class="fa-solid fa-clock-rotate-left" data-toggle="tooltip" data-placement="bottom" title="Update"></i>
+                      </a>
+                    </li>
+                  </div>
+                </td>
+            </tr>
+          {% endfor %}
+
+        </tbody>
+       
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+  {% endblock %}

@@ -1,0 +1,88 @@
+
+{% load static %}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/table.css' %}">
+  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/e4f8bd703b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" /></head>
+
+<div class="main-panel">
+  <div class="content-wrapper">
+     <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Pie chart</h4>
+                <canvas id="pieChart" style="height:250px"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Bar chart</h4>
+                <canvas id="barChart" style="height:230px"></canvas>
+              </div>
+            </div>
+          </div>
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Line chart</h4>
+            <canvas id="lineChart" style="height:250px"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Doughnut chart</h4>
+            <canvas id="doughnutChart" style="height:250px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Area chart</h4>
+            <canvas id="areaChart" style="height:250px"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Scatter chart</h4>
+            <canvas id="scatterChart" style="height:250px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="{% static 'vendors/js/vendor.bundle.base.js'  %}"></script>
+      <!-- endinject -->
+      <!-- Plugin js for this page -->
+      <!-- End plugin js for this page -->
+      <!-- inject:js -->
+      <script src="{% static 'js/off-canvas.js' %}"></script>
+      <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+      <script src="{% static 'js/misc.js' %}"></script>
+      <!-- endinject -->
+      <!-- Custom js for this page -->
+      <script src="{% static 'js/file-upload.js' %}"></script>
+  <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+  
+  <script src="{% static '/js/chart.js' %}"></script>
+
+
+
+{% endblock %}

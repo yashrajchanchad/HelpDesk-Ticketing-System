@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+  .initials {
+    
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    position: relative;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin: auto;
+    border: 1px solid #7f30c0;
+
+  }
+  p{
+    text-align: left;
+  }
+</style>
+
+
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="container" id="smp">
+      <div class="row">
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="box" id="bleft">
+
+                <div class="initials" style="background-image: url(/static/images/faces/face1.jpg);">
+                  
+                </div>
+                <div class="name mt-5" id="info">
+                  <div class="row">
+                    <!-- <div class="col-md-4">
+                      <h6>Name :-</h6>
+                    </div> -->
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <p>{{first_name}} | {{last_name}}</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                      <p>{{email}} </p>
+                    </div>
+                  </div>
+
+
+                 
+                </div>
+
+                <!-- <div class="button">
+                  <button type="button" class="btn btn-primary ms-4">
+                    Setting</button><br><br>
+                  <button type="button" class="btn btn-primary">
+                    Change Password</button>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- </div></div> -->
+        <div class="col-md-8 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="box" id="bright">
+                <h1>User Information</h1><br>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>First Name </h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{first_name}}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>Last Name </h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{last_name}}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>Phone Number</h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{phone_number}}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>Designation</h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{Title}}</p>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>Department</h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{department}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <h6>City </h6>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{city}}</p>
+                  </div>
+                </div>
+           
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

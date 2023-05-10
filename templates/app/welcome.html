@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e4f8bd703b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Title</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: rgb(35, 79, 161);
+            transition: color 250ms ease
+        }
+
+        a:hover {
+            color: #133e5e;
+            text-decoration: none
+        }
+
+        html {
+            box-sizing: border-box
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: inherit
+        }
+
+        :root {
+            font-family: Lato, Arial, sans-serif;
+            line-height: 1.57
+        }
+
+        :root {
+            --blue: rgb(35, 79, 161);
+        }
+
+        :root * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .link {
+            text-decoration: underline !important;
+            color: #1776ea
+        }
+
+        .link:hover {
+            text-decoration: none !important;
+            color: rgb(35, 79, 161)
+        }
+
+        .d-flex {
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .d-flex-center {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .justify-content-center {
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        .font-weight-bold {
+            font-weight: 700
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .cust-help .lightgrey {
+            color: rgb(35, 79, 161)
+        }
+
+        .cust-help .highlighted {
+            background-color: #e5fff2
+        }
+
+        .cust-help .italic {
+            font-style: italic
+        }
+
+        .cust-help .ml-1 {
+            margin-left: 8px
+        }
+
+        .cust-help .h-3 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.22;
+            letter-spacing: .13px;
+            color: #133e5e
+        }
+
+        .cust-help .text-center {
+            text-align: center
+        }
+
+        .cust-help .text-bold {
+            font-weight: 700
+        }
+
+        .cust-help .wrapper {
+            margin: 0 !important;
+            background-color: #fff
+        }
+
+        .cust-help .header {
+            border-bottom: 1px solid #92a8b6;
+            background-color: #133e5e
+        }
+
+        .cust-help .header .dropdown-select .label {
+            color: #fff;
+            letter-spacing: .1px
+        }
+
+        .cust-help .header .dropdown-select .label .icon {
+            fill: currentColor
+        }
+
+        .cust-help .btn:hover .icon {
+            fill: #133e5e
+        }
+
+        .tabbed__head {
+            margin: 0;
+            border-bottom: 2px solid #d5ebf7;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        .tabbed__tabs {
+            margin-top: -15px;
+        }
+
+        .tabbed__head .tabbed__head_tabs {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: end;
+            align-items: flex-end
+        }
+
+        .tabbed__head .tabbed__head_tabs li {
+            min-width: 150px;
+            padding: 6px 16px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.57;
+            letter-spacing: .1px;
+            color: #133e5e;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            border-bottom: 2px solid #d5ebf7;
+            transition: all 250ms ease;
+            margin-bottom: -2px;
+            background-color: rgba(0, 0, 0, .08)
+        }
+
+        .tabbed__head .tabbed__head_tabs li:not(.current):hover {
+            background-color: rgb(35, 79, 161);
+            color: #fff;
+            border-bottom: 2px solid #133e5e
+        }
+
+        .tabbed__head .tabbed__head_tabs li b {
+            font-weight: 700;
+            margin-left: 6px
+        }
+
+        .tabbed__head .tabbed__head_tabs li.current {
+            border-bottom-color: rgb(35, 79, 161);
+            color: rgb(35, 79, 161);
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(38, 40, 42, .3)
+        }
+
+        .tabbed__tabs .tabbed__tabs_tab {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 41, 89, .3)
+        }
+
+        .tabbed__tabs .tabbed__tabs_tab.is-visible {
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .nav {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 16px 0
+        }
+
+        .navlink {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            max-width: 344px;
+            margin: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 8px 0 rgba(38, 40, 42, .3);
+            background-color: #fff;
+            letter-spacing: .1px;
+            color: rgb(35, 79, 161);
+            transition: none
+        }
+
+        .navlink:hover {
+            box-shadow: 0 2px 3px 0 rgba(38, 40, 42, .4);
+            transition: none;
+            background-color: #fff
+        }
+
+        .navlink .navlink__title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: rgb(35, 79, 161)
+        }
+
+        .navlink .navlink__descr {
+            font-size: 12px
+        }
+
+        .article {
+            margin-top: 44px;
+            margin-bottom: 30px;
+            margin: auto !important;
+            width: 80%;
+        }
+
+        .article .block__head {
+            padding: 20px 0;
+            border-bottom: 1px solid rgb(35, 79, 161);
+            background-color: rgb(35, 79, 161);
+            box-shadow: 0 2px 8px 0 rgba(38, 40, 42, .3);
+            color: #fff !important
+        }
+
+        .article__heading {
+            margin: 12px 0;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: rgb(35, 79, 161);
+            letter-spacing: .1px;
+            text-align: center
+        }
+
+        .article__heading a {
+            color: inherit
+        }
+
+        .preview {
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            padding: 24px 16px;
+            border-bottom: 1px solid #99c4e4;
+            background-color: #fff;
+            box-shadow: 0 2px 8px 0 rgba(38, 40, 42, .3)
+        }
+
+        .preview:hover {
+            background-color: #edf6fb
+        }
+
+        .preview .preview__title {
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.38;
+            letter-spacing: .11px;
+            color: rgb(35, 79, 161)
+        }
+
+        @media screen and (max-width:580px) {
+            .preview {
+                padding: 24px 6px;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+
+            .preview .preview__text {
+                width: 100%;
+                -ms-flex-order: 3;
+                order: 3
+            }
+        }
+
+        .preview__text {
+            max-width: 678px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word
+        }
+
+        .preview__text p {
+            margin-top: 8px
+        }
+
+        .wrapper {
+            display: -ms-flexbox;
+            display: flex;
+            flex: 1 0 auto;
+            width: 100%;
+            font-family: Lato, Arial, sans-serif;
+            color: #133e5e;
+            font-size: 14px;
+            font-weight: 400;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.57;
+            letter-spacing: .1px;
+            background-color: #fff
+        }
+
+        @media screen and (max-width:900px) {
+            .wrapper {
+                margin-top: 48px
+            }
+        }
+
+        .main {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%
+        }
+
+        .text-center {
+            text-align: center !important;
+            height: 45vh;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tttttt {
+            background: linear-gradient(rgb(35, 79, 161), rgb(35, 79, 161, 0.5)), url('./bgpic.jpg') center center no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            font-family: "Petit Formal Script", cursive;
+            font-size: 70px;
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 2px black;
+        }
+
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .SearchBox__searchpart {
+            width: 60%;
+            position: relative;
+            display: flex;
+            background-color: #fff;
+            border-radius: 0.1875rem;
+        }
+
+        .SearchBox__searchpart input {
+            flex: 1;
+            min-width: 0;
+            margin: 0 auto;
+            transition: .2s all;
+            min-height: 2.95rem;
+            background-color: #fff;
+            border-radius: 0.1875rem;
+            height: 3.3125rem;
+            padding-left: 1.25rem;
+            font-size: 1.125rem;
+            color: #000;
+            border: 0;
+            font-family: inherit;
+        }
+
+        .nav {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin: 16px 0
+        }
+
+        .nav a {
+            text-decoration: none;
+        }
+
+        .navlink {
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            max-width: 344px;
+            margin: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 8px 0 rgba(38, 40, 42, .3);
+            background-color: #fff;
+            letter-spacing: .1px;
+            color: rgb(35, 79, 161);
+            transition: none
+        }
+
+        .navlink:hover {
+            box-shadow: 0 2px 3px 0 rgba(38, 40, 42, .4);
+            transition: none;
+            background-color: #fff
+        }
+
+        .navlink .navlink__title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: rgb(35, 79, 161)
+        }
+
+        .navlink .navlink__descr {
+            font-size: 12px
+        }
+
+        .navlink .icon-in-circle {
+            margin-right: 12px
+        }
+
+        .navlink:hover>.icon-in-circle {
+            background-color: #133e5e
+        }
+
+        .navlink:hover>.icon-in-circle .icon {
+            transition: none;
+            fill: #fff
+        }
+
+        .navlink-condensed {
+            margin: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 5px 0 rgba(38, 40, 42, .1)
+        }
+
+        .navlink-condensed:hover {
+            box-shadow: 0 4px 6px 0 rgba(38, 40, 42, .1)
+        }
+
+        .nav-pills-custom .nav-link {
+            color: #aaa;
+            background: #fff;
+            position: relative;
+        }
+
+        .nav-pills-custom .nav-link.active {
+            color: #ffffff;
+            background: rgb(35, 79, 161);
+        }
+
+        .nav-pills-custom .nav-link.active::before {
+            opacity: 1;
+        }
+
+        /* Add indicator arrow for the active tab */
+        @media (min-width: 992px) {
+            .nav-pills-custom .nav-link::before {
+                content: '';
+                display: block;
+                border-top: 8px solid transparent;
+                border-left: 10px solid #fff;
+                border-bottom: 8px solid transparent;
+                position: absolute;
+                top: 50%;
+                right: -10px;
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 372px) {
+            .tabbed__head_tabs {
+                margin-left: -44px;
+            }
+        }
+
+        .icoo {
+            border: 2px solid rgb(35, 79, 161);
+            font-size: 18px;
+            width: 40px;
+            border-radius: 50%;
+            background: rgb(35 79 161);
+            color: white;
+            height: 40px;
+        }
+
+        .fa-floppy-o {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 37px;
+        }
+
+        .fa-file-text-o {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 37px;
+        }
+
+        .newscls {
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 50%;
+            background: rgb(35 79 161);
+            color: white;
+        }
+
+        .main__content {
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            background-color: #e9f0f3;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">CloudService</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="text-center tttttt" style="color: #fff; background-color: #3d70fc;">
+        <h2 class="">Welcome to HelpDesk Ticketing System</h2>
+        <p class="SearchBox__searchpart mt-4">
+            <input class="form-control me-2" type="text" placeholder="Search">
+        </p>
+    </div>
+    <div class="main__content">
+        <div class="nav">
+            <a href="{%url 'helpdeskapp:option'%}" class="navlink">
+                <div class="d-flex justify-content-between">
+                    <div class="icoo mx-2">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h5 class="navlink__title">Submit a ticket</h5>
+                        <div class="navlink__descr">Submit a new issue to a department</div>
+                    </div>
+                </div>
+            </a>
+            <a href="{%url 'helpdeskapp:ticket_list'%}" class="navlink">
+                <div class="d-flex justify-content-between">
+                    <div class="icoo mx-2">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h5 class="navlink__title">View existing tickets</h5>
+                        <div class="navlink__descr">View tickets you submitted in the past</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <article class="article">
+            <h3 class="article__heading">
+                <a href="knowledgebase.php">
+                    <div class="newscls">
+                        <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                    </div>
+                    <span>Knowledgebase</span>
+                </a>
+            </h3>
+            <div class="tabbed__head">
+                <ul class="tabbed__head_tabs">
+                    <li class="current" data-link="tab1">
+                        <span>Top articles</span>
+                    </li>
+                    <li data-link="tab2">
+                        <span>Latest articles</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="tabbed__tabs mb-5">
+                <div class="tabbed__tabs_tab is-visible" data-tab="tab1">
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Welcome to HESK demo</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Knowledgebase</span>
+                            </p>
+                            <p class="navlink__descr">
+                                This is a live demo of the HESK help desk. Some functionality has been disabled for
+                                security and privacy, but feel free to: Submit support tickets Test the admin panel
+                                Browse the knowledgebase Note th... </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Article with HTML code</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Knowledgebase</span>
+                            </p>
+                            <p class="navlink__descr">
+                                Headings -------------------------------------------- Heading 1 Heading 2 Heading 3
+                                Heading 4 Heading 5 Heading 6 Blocks --------------------------------------------
+                                Paragraph Block. Now is the time... </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Article in a subcategory</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Support</span>
+                            </p>
+                            <p class="navlink__descr">
+                                This is an article in a subcategory... </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Article with a download</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Downloads</span>
+                            </p>
+                            <p class="navlink__descr">
+                                This is article text, it will explain how to... As a further help you can add unlimited
+                                number of attachments to Knowledgebase articles. This article has two attachments. You
+                                can set size limits and... </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Another one</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Support</span>
+                            </p>
+                            <p class="navlink__descr">
+                                Just some text to test functionality. </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="tabbed__tabs_tab " data-tab="tab2">
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">This can go on...</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Knowledgebase</span>
+                            </p>
+                            <p class="navlink__descr">
+                                You can create unlimited articles in unlimited knowledgebase categories. Taking time to
+                                create a comprehensive knowledgebase can save you a lot of time in the long run! </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">And another...</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Knowledgebase</span>
+                            </p>
+                            <p class="navlink__descr">
+                                A simple article. </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">An article in the main knowledgebase category</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Knowledgebase</span>
+                            </p>
+                            <p class="navlink__descr">
+                                Just another article in the main knowledgebase category... </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Article in downloads</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Downloads</span>
+                            </p>
+                            <p class="navlink__descr">
+                                This is an article in the downloads category. As you see, you can organize articles into
+                                various categories to keep the knowledgebase organized. You will find a sample download
+                                file here. </p>
+                        </div>
+                    </a>
+                    <a href="#" class="preview">
+                        <div class="newscls mx-2">
+                            <i class="fa fa-newspaper-o newsclshai" aria-hidden="true"></i>
+                        </div>
+                        <div class="preview__text">
+                            <h5 class="preview__title">Another article in advertising category</h5>
+                            <p>
+                                <span class="lightgrey text-muted">Category:</span>
+                                <span class="ml-1">Advertising</span>
+                            </p>
+                            <p class="navlink__descr">
+                                Just a test article in the advertising category. </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+        $(".tabbed__head_tabs li").click(function (e) {
+            var t = $(this).attr("data-link");
+            $(".tabbed__head_tabs li").removeClass("current"), $(this).addClass("current"), $(".tabbed__tabs .tabbed__tabs_tab").removeClass("is-visible"), $(".tabbed__tabs [data-tab=" + t + "]").addClass("is-visible")
+        }),
+            window.onload = function () {
+                $("#loader").fadeOut(150)
+            };
+    </script>
+
+</body>
+
+</html>

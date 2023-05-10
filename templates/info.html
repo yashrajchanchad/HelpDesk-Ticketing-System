@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .btn {
+            width: 120px;
+            height: 50px;
+        }
+
+        button {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            margin: 20px;
+            border: solid 1px transparent;
+            border-radius: 4px;
+            padding: 1rem 1.5rem;
+            color: #FFFFFF;
+            background-color: teal;
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: translateY(1px);
+            filter: saturate(150%);
+        }
+
+        button:hover {
+            color: teal;
+            border-color: currentColor;
+            background-color: white;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 6px -2px teal;
+        }
+
+        #Action2 {
+            background-color: tomato;
+        }
+
+        #Action2:active {
+            transform: translateY(1px);
+            filter: saturate(150%);
+        }
+
+        #Action2:hover {
+            color: tomato;
+            border-color: currentColor;
+            background-color: white;
+        }
+
+        #Action2:focus {
+            outline: none;
+            box-shadow: 0 0 12px -2px tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="box1 col-md-6">
+        <h3>Name</h3>
+        <div class="form-group">
+            <label for="inputState">Priority</label>
+            <select id="inputState" class="form-control" name='priority'>
+                <option selected>Choose...</option>
+                <option>low</i></option>
+                <option>medium</i></option>
+                <option>high</option>
+            </select>
+        </div><br>
+        <div class="form-group col-md-12">
+            <label for="inputtitle">Contact Field</label>
+            <input type="title" class="form-control" id="title" placeholder="Title" name='title'>
+        </div><br>
+        <div class="form-group col-md-12">
+            <label for="inputtitle">Contact Field</label>
+            <input type="title" class="form-control" id="title" placeholder="Title" name='title'>
+        </div><br>
+
+
+        <textarea name="editor1">Type here and show console to see editor's height</textarea>
+        <p class="text" style="display:none;">Show me or hide me when you desire</p>
+        <button id="button">Click Me</button>
+        <script src="cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+
+            CKEDITOR.replace('editor1');
+            CKEDITOR.on('instanceReady', function (evt) {
+                var editor = evt.editor;
+
+                editor.on('change', function (e) {
+                    var contentSpace = editor.ui.space('contents');
+                    var ckeditorFrameCollection = contentSpace.$.getElementsByTagName('iframe');
+                    var ckeditorFrame = ckeditorFrameCollection[0];
+                    var innerDoc = ckeditorFrame.contentDocument;
+                    var innerDocTextAreaHeight = $(innerDoc.body).height();
+                    console.log(innerDocTextAreaHeight);
+                });
+            });
+
+
+            $(document).ready(function () {
+                $('#button').click(function () {
+                    if ($('.text').is(':hidden')) {
+                        $('.text').show();
+                    } else {
+                        $('.text').hide();
+                    }
+                });
+            });
+        </script>
+
+</body>
+</div>
+</html> -->

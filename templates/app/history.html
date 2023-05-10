@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    #inline1,
+    #inline2,
+    #inline3,
+    #inline4,
+    #inline5,
+    #inline6 {
+      display: inline;
+    }
+  </style>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Ticket History</h3>
+      </div>
+      <div class="row">
+        <!-- <div class="col-lg-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <p class="text-center">Mail history</p>
+
+            </div>
+          </div>
+        </div> -->
+        <div class="col-lg-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <!-- <p class="text-center">Mandatory</p> -->
+              <label for="inputState" id="form-label" class="form-label">Ticket Type :</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Choose...</option>
+                <option>Wifi </option>
+                <option>Printer</option>
+                <option>Mail</option>
+              </select><br>
+
+              <label for="inputState" id="form-label" class="form-label">Sub Type :</label>
+              <select id="inputState" class="form-select" name='ticketSubType' required>
+                <option selected>Choose...</option>
+                <option>Range</option>
+                <option>Connectivity</option>
+                <option>Wlan</option>
+              </select><br>
+
+
+
+              <label for="inputState" id="form-label" class="form-label">Issue Type :</label>
+              <select id="inputState" class="form-select" name='ticketSubType' required>
+                <option selected>Choose...</option>
+                <option>Request</option>
+                <option>Issue</option>
+                <option>Major issue</option>
+              </select><br>
+
+
+              <label for="inputState" id="form-label" class="form-label">Priority :</label>
+              <select name="priority" class="form-select" aria-label="Default select example">
+                <option value="3" selected="">Choose...</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+              </select>
+              <br>
+
+
+
+              <label for="inputState" id="form-label" class="form-label">Department :</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Choose...</option>
+                <option>HR</option>
+                <option>Admin</option>
+                <option>Tech</option>
+              </select><br>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-8 grid-margin stretch-card">
+          <div class="card">
+            {% for ticket in ticket_history  %}
+
+            <div class="card-body">
+                
+              <h1 class="text-center mb-5">Ticket History</h1> 
+           
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Status :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.status}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Created :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.created_at}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Updated :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.updated_at}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Assigned to :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.assigned_to}}</p>
+                  </div>
+                </div>
+  
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Assigned by :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.assigned_by}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Completed at :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.completed_at}}</p>
+                  </div>
+                </div>
+  
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <h6>Time taken to resolve :-</h6>
+                  </div>
+                  <div class="col">
+                   <p>{{ticket.time_to_resolve}}</p>
+                  </div>
+                </div>
+
+             
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

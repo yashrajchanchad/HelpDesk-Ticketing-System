@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  /* #inline1,
+  #inline2,
+  #inline3,
+  #inline4,
+  #inline5,
+  #inline6 {
+    display: inline;
+  }
+
+  .btn {
+    margin-top: 2rem;
+  }
+
+  .fa {
+    color: blueviolet;
+    font-size: 20px;
+  }
+
+  @media (max-width:768px) {
+    .ticketdetails {
+      margin-top: 20px !important;
+    }
+
+  } */
+
+  #inline1,
+  #inline2,
+  #inline3,
+  #inline4,
+  #inline5,
+  #inline6 {
+    display: inline;
+  }
+  
+
+ .fa
+
+ {
+
+ color: #6C63AC;
+
+ font-size: 22px;
+
+ }
+
+ @media(max-width:768px){
+
+ .ticketdetail{
+
+ margin-top: 20px !important;
+
+ }
+
+ }
+
+ .edit a{
+
+ list-style: none;
+
+ text-decoration: none;
+
+ font-size: 1.1rem;
+
+ color: #6C63AC;
+
+ }
+
+ .print a{
+
+ list-style: none;
+
+ font-size: 1.1rem;
+
+ color: #6C63AC;
+
+ text-decoration: none;
+
+ }
+
+ .dd{
+ display:flex;
+
+justify-content: center;
+
+ align-items:center;
+
+ gap: 80px;
+ }
+</style>
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title"> Ticket Details </h3>
+    </div>
+    <div class="row">
+      <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample">
+              <div class="row">
+                <div class="col-md-3">
+                  <h6>Title :-</h6>
+                </div>
+                <div class="col-md-9">
+                 <p>{{viewtickets.title}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <h6>Description :- </h6>
+                </div>
+                <div class="col-md-9" >
+                 <p>{{viewtickets.description}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <h6>Contact :- </h6>
+                </div>
+                <div class="col-md-9" >
+                 <p>{{viewtickets.contact_number}}</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+      <div class="col-md-4 mb-5">
+
+        <div class="card">
+
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <div class="dd">
+
+              <div class="edit">
+
+
+
+
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+                <a id="editticket" href="{% url 'helpdeskapp:update_ticket_User' pk=viewtickets.id %}" title="Edit">
+                  Edit
+
+                </a>
+              </div>
+              <div class="print">
+
+                <i class="fa fa-print" aria-hidden="true"></i>
+
+                <a href="#" onclick="window.print()" title="Print" target="_blank">
+
+                  Print
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+    
+      <div class="col-md-8 grid-margin">
+        <div class="card pb-4">
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <h4 class="card-title">Add Reply</h4>
+              <br><br>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comments"></textarea>
+              </div><br><br>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputCity" id="form-label" class="form-label">Attachment :</label>
+                  <input type="file" class="form-control" id="inputCity" placeholder="Your name.." name='attachment'>
+                </div><br>
+              </div>
+              <input class="btn btn-primary pb-3" type="submit"  value="Submit">
+              <!-- <button class="btn">Submit</button> -->
+          </div>
+        </div>
+        </form>
+      </div>
+
+      <div class="col-md-4 grid-margin ticketdetails stretch-card" style="margin-top: -90px;">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-5">Ticket Details</h4>
+            <div class="boxR">
+            
+
+                <div class="row mt-2 my-2" >
+                  <div class="col">
+                    <p> ID</p>
+                  </div>
+                  <div class="col">
+                   <p>{{viewtickets.id}}</p>
+                  </div>
+                </div>
+  
+                <div class="row my-3">
+                  <div class="col">
+                    <p>Status </p>
+                  </div>
+                  <div class="col" >
+                   <p>{{viewtickets.status}}</p>
+                  </div>
+                </div>
+  
+                <div class="row my-2">
+                  <div class="col">
+                    <p>Attachment</p>
+                  </div>
+                  <div class="col" >
+                   <p><a target="_blank" href="{{viewtickets.attachment.url}}" style="color: #6C63AC;">
+                    Preview</a></p>
+                  </div>
+                </div>
+
+
+                <div class="row my-2">
+                  <div class="col">
+                    <p>Department </p>
+                  </div>
+                  <div class="col" >
+                   <p>{{viewtickets.department}}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <p> Priority </p>
+                  </div>
+                  <div class="col" >
+                   <p>{{viewtickets.priority}}</p>
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col">
+                    
+                {% if viewtickets.status == 'open' %}
+                <form action="{% url 'helpdeskapp:change_ticket_status' %}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" value="closed" name="status">
+                  <input type="hidden" value="{{viewtickets.id}}" name="ticket_id">
+                  <button type="submit" class="btn btn-primary my-4 ">Close</button>
+                </form>
+                {% elif viewtickets.status == 'closed' %}
+                <form action="{% url 'helpdeskapp:change_ticket_status' %}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" value="open" name="status">
+                  <input type="hidden" value="{{viewtickets.id}}" name="ticket_id">
+                  <button type="submit" class="btn btn-primary my-4">Open Again</button>
+                </form>
+                {% else %}
+                <button type="button" class="btn text-white btn-info my-4">
+                  Work in progress..
+                </button>
+                {% endif %}
+                  </div>
+                </div>
+
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+
+          <!-- partial -->
+        </div>
+      </div>
+      <!-- main-panel ends -->
+    </div>
+
+
+
+    {% endblock %}

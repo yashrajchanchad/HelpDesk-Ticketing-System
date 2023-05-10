@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+
+    <h1>Select Ticket Category</h1>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mr-sm-0">
+            <div class="card col-sm-8">
+                <div class="card-body" id="op">
+                    <a href="{% url 'helpdeskapp:index' %}" class="link">
+                        <i class="fa fa-arrow-right fa-2x" aria-hidden="true">
+                        General</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card col-sm-8">
+                <div class="card-body" id="op">
+                    <a href="#" class="link">
+                        <i class="fa fa-arrow-right fa-2x" aria-hidden="true">
+                            Support</i></a>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-sm-6 mb-3 mr-sm-0">
+            <div class="card col-sm-8">
+                <div class="card-body" id="op">
+                    <a href="#" class="link">
+                        <i class="fa fa-arrow-right fa-2x" aria-hidden="true">
+                            Advertising</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card col-sm-8">
+                <div class="card-body" id="op">
+                    <a href="#" class="link">
+                        <i class="fa fa-arrow-right fa-2x" aria-hidden="true">
+                            Billing</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}

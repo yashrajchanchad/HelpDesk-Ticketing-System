@@ -1,0 +1,88 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'landing/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'landing/css/boxicons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/e4f8bd703b.js" crossorigin="anonymous"></script>
+    <title>Help Desk</title>
+    <style>
+        body {
+            overflow-y: hidden;
+        }
+        .btn{
+            background-color:#6C63AC;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- <img class="logo" src="img/logo-dark.svg" alt=""> -->
+                <!-- <span class="logo">Cloudstrats</span> -->
+                <img src="{% static 'images/3.png' %}" alt="" height="80px" width="500px">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="ms-auto" href="{% url 'helpdeskapp:index' %}">
+                    <button class="btn btn-outline-light ">LogIn</button>
+                </a>
+            </div>
+        </div>
+    </nav><!-- //NAVBAR -->
+
+    <!-- HERO -->
+    <div class="hero vh-100 d-flex align-items-center" id="home">
+        <div class="container" style="margin-top: -120px;">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <h1 class="display-4 text-black mt-5">HelpDesk Support</h1>
+                    <p class="text-black my-3">We offer premium support and
+                        efficient solutions. Dynamically innovate resource-leveling customer service for state of the
+                        art customer service.</p>
+                    <!-- <a href="#" class="btn me-2 btn-primary">Get Started</a> -->
+                    <!-- <a href="#" class="btn btn-outline-light">My Portfolio</a> -->
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="{% url 'helpdeskapp:index' %}">
+                        <div class="service card-effect my-3">
+                            <div class="iconbox">
+                                <i class="fa-solid fa-ticket"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2">Add Ticket</h5>
+                            <p>Create a new support ticket for a specific department </p>
+                        </div>
+                    </a></div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="{% url 'helpdeskapp:index' %}">
+                        <div class="service card-effect my-3">
+                            <div class="iconbox">
+                                <i class="fa-solid fa-ticket"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2">Existing Ticket</h5>
+                            <p>View your past submitted tickets</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- //HERO -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+<form action="{% url 'helpdeskapp:updateRole' %}" method='post' class="p-3">
+    {% csrf_token %}
+    {{form_errors}}
+{{form}}
+
+<button type="submit" class="btn btn-gradient-primary me-2 my-2">Submit</button>
+
+</form>

@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HelpDesk</title>
+    <!-- plugins:css -->
+    <!-- "{% static 'css/demo.css' %}" -->
+    <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
+
+
+
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <script src="https://kit.fontawesome.com/e4f8bd703b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+    <style>
+      li,label,h1,h2,h3,h4,h5,h6,p{
+         font-family: "Poppins", sans-serif;
+         font-size: 16px;
+      }
+    </style>
+      <style>
+        @import url(
+         https://fonts.googleapis.com/css?family=Poppins+Sans);
+        h1,h2,h3,h4,h5,h6{
+            font-family: 'Poppins', serif;
+            
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href=""><img src="{% static 'images/newlogo.jpg' %}" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href=""><img src="{% static 'images/logo-mini.svg' %}" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="{% static 'images/faces/face1.jpg' %}" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">{{first_name}}</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+               
+                <a class="dropdown-item" href="{% url 'accounts:logout'%}">
+                  <i class="mdi mdi-logout me-2 menu-icon"></i> Signout </a>
+              </div>
+            </li>
+          
+            
+         
+          
+         
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="{% static 'images/faces/face1.jpg' %}" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">{{first_name}}</span>
+                  <span class="text-secondary text-small">Project Manager</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+                           {% if not request.user.is_it_engineer and not request.user.is_it_manager %}
+              <a class="nav-link" href="{% url 'helpdeskapp:index' %}">
+              {% endif %}
+              {% if request.user.is_it_manager %} 
+              <a class="nav-link" href="{% url 'it_manager:ticket_list'%}">
+              {% endif %}
+              {% if request.user.is_it_engineer %} 
+              <a class="nav-link" href="{% url 'it_engineer:ticket_list'%}">
+                {% endif %}
+                <span class="menu-title">Home</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+      
+            <li class="nav-item">
+              {% if not request.user.is_it_engineer and not request.user.is_it_manager %}
+              <a class="nav-link" href="{% url 'helpdeskapp:ticket_list'%}">
+              {% endif %}
+              {% if request.user.is_it_manager %} 
+              <a class="nav-link" href="{% url 'it_manager:ticket_list'%}">
+              {% endif %}
+              {% if request.user.is_it_engineer %} 
+              <a class="nav-link" href="{% url 'it_engineer:ticket_list'%}">
+                {% endif %}
+
+                <span class="menu-title">My Ticket</span>
+                <i class="mdi mdi-ticket menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'helpdeskapp:profile' %}">
+                <span class="menu-title">Profile</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:logout'%}">
+                <span class="menu-title">Log Out</span>
+                <i class="mdi mdi-logout menu-icon"></i>
+          
+              </a>
+            </li>
+          <br>
+          <br>
+          <br>
+            <img src="{% static 'images/3.png' %}" alt="" height="auto" width="60%" style="padding-left: 70px;">
+        
+          </ul>
+        </nav>
+        <!-- partial -->
+        
+        {% block content %} {% endblock %}
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'vendors/js/vendor.bundle.base.js'  %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'js/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{% static 'js/file-upload.js' %}"></script>
+    <!-- End custom js for this page -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+      $(document).ready(function() {
+        $('#test').DataTable();
+    } );
+    </script>
+  </body>
+</html>

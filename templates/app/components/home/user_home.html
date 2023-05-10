@@ -1,0 +1,182 @@
+{% load static %}
+{% block content %}
+          <div class="main-panel">
+            <div class="content-wrapper">
+            <div class="row">
+            <form action="{% url 'helpdeskapp:create_ticket' %}" method='post' enctype='multipart/form-data' class="p-3">
+              {% csrf_token %}
+              {{form_errors}}
+              <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Submit a Ticket</h4>
+                      <form class="form-sample">
+                        <p class="card-description"> Give Detail Information Of Your Ticket Below </p>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Ticket</label>
+                              <div class="col-sm-4">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Self </label>
+                                </div>
+                              </div>
+                              <div class="col-sm-5">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Behalf of </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Title</label>
+                              <div class="col-sm-9">
+                                <input type="title" class="form-control" id="title" placeholder="Issue title" name='title' required>
+                              </div>
+                            </div>
+                          </div>
+                      
+                        
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Email</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label"  >Department</label>
+                              <div class="col-sm-9">
+                                <select class="form-control h-100" name='department'>
+                                  <option selected>Choose...</option>
+                                  <option value='HR'>HR</option>
+                                  <option value='Admin'>Admin</option>
+                                  <option value='Tech'>Tech</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label" >Ticket Type:</label>
+                              <div class="col-sm-9">
+                                <select class="form-control h-100" name='ticketType'>
+                                  <option selected>Choose...</option>
+                                  <option value="Wifi">Wifi </option>
+                                  <option value="Printer">Printer</option>
+                                  <option value="Mail">Mail</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label" >Sub Type:</label>
+                              <div class="col-sm-9">
+                                <select class="form-control h-100" name='ticketSubType'>
+                                  <option selected>Choose...</option>
+                                  <option value="Range">Range</option>
+                                  <option value="Connectivity">Connectivity</option>
+                                  <option value="Wlan">Wlan</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Issue Type:</label>
+                              <div class="col-sm-9">
+                                <select class="form-control h-100"  name='ticketSubType'>
+                                  <option selected>Choose...</option>
+                                  <option value="Request">Request</option>
+                                  <option value="Issue">Issue</option>
+                                  <option value="Major issue">Major issue</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label" >Priority:</label>
+                              <div class="col-sm-9">
+                                <select class="form-control h-100" name="priority">
+                                  <option value="3" selected="">Choose...</option>
+                                  <option value="Medium">Medium</option>
+                                  <option value="High">High</option>
+                                  <option value="Critical">Critical</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    
+                    
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label" >Contact No.</label>
+                              <div class="col-sm-9">
+                                <input class="form-control" name="contact_number" placeholder="Contact No." />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                          
+                              <input type="file" name="attachment" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                              <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button" style="line-height: 2;">Upload</button>
+                              </span>
+                              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                             
+                            </div>
+                            </div>
+                          </div>
+                        
+                        </div>
+                    
+                        <div class="row">
+                          <div class="col-md-12">
+                          
+                            <div class="form-group ">
+                              <label class=" col-form-label">Description:</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name='description'
+                              required></textarea>
+                            </div>
+                        </div>
+                        </div>
+                        <button class="btn btn-outline-primary me-2 my-2">Reset</button>
+                        <button type="submit" class="btn btn-gradient-primary me-2 my-2">Submit</button>
+                    
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+            </div>
+          
+            <footer class="footer">
+              <div class="container-fluid d-flex justify-content-between">
+      <span class="text-muted d-block text-center text-sm-start d-sm-inline-block"><b>HelpDesk Ticketing System is Developed by Komal Sardar, Yashraj Chanchad & Suraj Kanade.<b></span>
+              
+              </div>
+            </footer>
+          </div>
+{% endblock %}
+        <!-- main-panel ends -->
